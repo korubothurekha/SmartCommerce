@@ -88,6 +88,7 @@ const Inventory = () => {
   }, [user]);
 
   const getStatusBadge = (status: string) => {
+    
     switch (status) {
       case 'overstock':
         return <Badge variant="destructive">Overstock</Badge>;
