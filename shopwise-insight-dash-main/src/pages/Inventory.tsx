@@ -91,6 +91,7 @@ const Inventory = () => {
     
     switch (status) {
       case 'overstock':
+        
         return <Badge variant="destructive">Overstock</Badge>;
       case 'low_stock':
         return <Badge variant="destructive">Low Stock</Badge>;
