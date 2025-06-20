@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import Upload from "./pages/Upload";
 import Inventory from "./pages/Inventory";
 import Reports from "./pages/Reports";
+import AIAnalysis from "./pages/AIAnalysis";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -45,6 +46,11 @@ const App = () => (
             <Route path="/reports" element={
               <ProtectedRoute>
                 <Reports />
+              </ProtectedRoute>
+            } />
+            <Route path="/ai-analysis" element={
+              <ProtectedRoute>
+                <AIAnalysis />
               </ProtectedRoute>
             } />
             <Route path="*" element={<NotFound />} />

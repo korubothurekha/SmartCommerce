@@ -1,4 +1,3 @@
-
 import { ReactNode } from 'react';
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -8,7 +7,8 @@ import {
   Package, 
   FileText, 
   LogOut,
-  Home
+  Home,
+  Bot
 } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from '../contexts/AuthContext';
@@ -42,6 +42,7 @@ const Layout = ({ children }: LayoutProps) => {
     { name: 'Upload Data', href: '/upload', icon: Upload },
     { name: 'Inventory', href: '/inventory', icon: Package },
     { name: 'Reports', href: '/reports', icon: FileText },
+    { name: 'AI Analysis', href: '/ai-analysis', icon: Bot },
   ];
 
   const displayName = profile?.full_name || user?.email?.split('@')[0] || 'User';

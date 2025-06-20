@@ -10,12 +10,14 @@ import {
   DollarSign,
   ShoppingCart,
   Users,
-  Calendar
+  Calendar,
+  Bot
 } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import Layout from '../components/Layout';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '../contexts/AuthContext';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
   const { user } = useAuth();
@@ -252,7 +254,7 @@ const Dashboard = () => {
         </div>
 
         {/* Bottom Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Top Products */}
           <Card>
             <CardHeader>
@@ -308,6 +310,51 @@ const Dashboard = () => {
                     </div>
                   </div>
                 ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* AI Analysis Widget */}
+          <Card className="bg-gradient-to-br from-blue-50 via-purple-50 to-blue-100/30 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 group">
+            <CardHeader className="pb-4">
+              <div className="flex items-center space-x-3">
+                <div className="p-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                  <Bot className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-blue-900 font-semibold">AI Business Analyst</CardTitle>
+                  <CardDescription className="text-blue-700">Get intelligent insights</CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <p className="text-sm text-blue-800 leading-relaxed">
+                  Ask me about your business performance, inventory trends, or get personalized recommendations.
+                </p>
+                <div className="space-y-3">
+                  <div className="text-xs text-blue-700 font-semibold">Quick insights:</div>
+                  <div className="space-y-2">
+                    <div className="flex items-center space-x-2 text-xs text-blue-600">
+                      <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                      <span>Sales performance analysis</span>
+                    </div>
+                    <div className="flex items-center space-x-2 text-xs text-blue-600">
+                      <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
+                      <span>Inventory optimization tips</span>
+                    </div>
+                    <div className="flex items-center space-x-2 text-xs text-blue-600">
+                      <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
+                      <span>Growth recommendations</span>
+                    </div>
+                  </div>
+                </div>
+                <Link to="/ai-analysis">
+                  <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl py-2.5 font-medium transition-all duration-200 hover:shadow-lg hover:scale-[1.02]">
+                    <Bot className="mr-2 h-4 w-4" />
+                    Chat with AI
+                  </Button>
+                </Link>
               </div>
             </CardContent>
           </Card>
