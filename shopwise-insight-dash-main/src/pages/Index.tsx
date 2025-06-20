@@ -4,6 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, BarChart3, TrendingUp, AlertCircle, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 
+
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
