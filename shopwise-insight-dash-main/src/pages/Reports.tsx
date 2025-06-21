@@ -790,7 +790,7 @@ const Reports = () => {
     <Layout>
       <div className="space-y-8">
         {/* Enhanced Page Header */}
-        <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 rounded-2xl p-8 text-white">
+        <div className="relative overflow-hidden bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 rounded-2xl p-8 text-white">
           <div className="relative z-10">
             <div className="flex items-center space-x-3 mb-4">
               <div className="bg-white/20 p-3 rounded-xl">
@@ -798,7 +798,7 @@ const Reports = () => {
               </div>
               <div>
                 <h1 className="text-4xl font-bold">Smart Reports</h1>
-                <p className="text-blue-100 text-lg">AI-powered insights for your business</p>
+                <p className="text-purple-100 text-lg">AI-powered insights for your business</p>
               </div>
             </div>
           </div>
@@ -808,42 +808,42 @@ const Reports = () => {
 
         {/* Enhanced Quick Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <Card className="relative overflow-hidden border-0 shadow-lg bg-gradient-to-br from-blue-50 to-blue-100">
+          <Card className="relative overflow-hidden border-0 shadow-xl bg-gradient-to-br from-blue-50 to-blue-100 group hover:shadow-2xl transition-all duration-500">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-3xl font-bold text-blue-700">{reports.length}</div>
-                  <div className="text-sm text-blue-600 font-medium">Reports Generated</div>
+                  <div className="text-sm text-blue-600 font-semibold">Reports Generated</div>
                 </div>
-                <div className="bg-blue-500 p-3 rounded-xl">
+                <div className="bg-blue-500 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
                   <FileText className="h-6 w-6 text-white" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="relative overflow-hidden border-0 shadow-lg bg-gradient-to-br from-green-50 to-green-100">
+          <Card className="relative overflow-hidden border-0 shadow-xl bg-gradient-to-br from-green-50 to-green-100 group hover:shadow-2xl transition-all duration-500">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-3xl font-bold text-green-700">{reports.length * 3}</div>
-                  <div className="text-sm text-green-600 font-medium">Insights Generated</div>
+                  <div className="text-sm text-green-600 font-semibold">Insights Generated</div>
                 </div>
-                <div className="bg-green-500 p-3 rounded-xl">
+                <div className="bg-green-500 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
                   <Sparkles className="h-6 w-6 text-white" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="relative overflow-hidden border-0 shadow-lg bg-gradient-to-br from-purple-50 to-purple-100">
+          <Card className="relative overflow-hidden border-0 shadow-xl bg-gradient-to-br from-purple-50 to-purple-100 group hover:shadow-2xl transition-all duration-500">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-3xl font-bold text-purple-700">{reports.length * 5}</div>
-                  <div className="text-sm text-purple-600 font-medium">Actions Recommended</div>
+                  <div className="text-sm text-purple-600 font-semibold">Actions Recommended</div>
                 </div>
-                <div className="bg-purple-500 p-3 rounded-xl">
+                <div className="bg-purple-500 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
                   <TrendingUp className="h-6 w-6 text-white" />
                 </div>
               </div>
