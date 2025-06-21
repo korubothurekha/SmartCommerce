@@ -74,7 +74,7 @@ const Auth = () => {
                 <BarChart3 className="h-16 w-16 text-white" />
               </div>
               <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                PS1WAD
+                Smart-Commerce
               </h1>
             </div>
             <p className="text-2xl text-gray-700 leading-relaxed">
@@ -121,7 +121,7 @@ const Auth = () => {
             <div className="mx-auto bg-gradient-to-r from-blue-600 to-purple-600 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 shadow-xl">
               <BarChart3 className="h-10 w-10 text-white" />
             </div>
-            <CardTitle className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Welcome to PS1WAD</CardTitle>
+            <CardTitle className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Welcome to Smart-Commerce</CardTitle>
             <CardDescription className="text-lg mt-2">
               Start your analytics journey today
             </CardDescription>
