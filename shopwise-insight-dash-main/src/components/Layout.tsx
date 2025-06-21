@@ -8,7 +8,8 @@ import {
   FileText, 
   LogOut,
   Home,
-  Bot
+  Bot,
+  DollarSign
 } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from '../contexts/AuthContext';

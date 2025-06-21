@@ -47,6 +47,7 @@ const Inventory = () => {
     cost_price: '',
     min_stock_level: '',
     max_stock_level: '',
+    total_products_sold: '',
   });
   const [addLoading, setAddLoading] = useState(false);
   const [addErrors, setAddErrors] = useState<any>({});
@@ -61,6 +62,7 @@ const Inventory = () => {
     cost_price: '',
     min_stock_level: '',
     max_stock_level: '',
+    total_products_sold: '',
   });
   const [editLoading, setEditLoading] = useState(false);
   const [editErrors, setEditErrors] = useState<any>({});
@@ -164,7 +166,7 @@ const Inventory = () => {
     setAddErrors(errors);
     if (Object.keys(errors).length > 0) return;
     setAddLoading(true);
-    const { name, category, current_stock, unit_price, product_id, cost_price, min_stock_level, max_stock_level } = addForm;
+    const { name, category, current_stock, unit_price, product_id, cost_price, min_stock_level, max_stock_level, total_products_sold } = addForm;
     const { error } = await supabase.from('products').insert([
       {
         name,
@@ -176,6 +178,7 @@ const Inventory = () => {
         cost_price: cost_price ? Number(cost_price) : null,
         min_stock_level: min_stock_level ? Number(min_stock_level) : null,
         max_stock_level: max_stock_level ? Number(max_stock_level) : null,
+        total_products_sold: total_products_sold ? Number(total_products_sold) : 0,
         updated_at: new Date().toISOString(),
       },
     ]);
@@ -185,7 +188,7 @@ const Inventory = () => {
     } else {
       toast({ title: 'Product added', description: 'Product created successfully.' });
       setShowAddModal(false);
-      setAddForm({ name: '', category: '', current_stock: '', unit_price: '', product_id: '', cost_price: '', min_stock_level: '', max_stock_level: '' });
+      setAddForm({ name: '', category: '', current_stock: '', unit_price: '', product_id: '', cost_price: '', min_stock_level: '', max_stock_level: '', total_products_sold: '' });
       setAddErrors({});
       // Refresh inventory
       if (user) {
@@ -212,6 +215,7 @@ const Inventory = () => {
       cost_price: product.cost_price?.toString() || '',
       min_stock_level: product.min_stock_level?.toString() || '',
       max_stock_level: product.max_stock_level?.toString() || '',
+      total_products_sold: product.total_products_sold || '',
     });
     setEditErrors({});
   };
@@ -227,7 +231,7 @@ const Inventory = () => {
     setEditErrors(errors);
     if (Object.keys(errors).length > 0) return;
     setEditLoading(true);
-    const { name, category, current_stock, unit_price, product_id, cost_price, min_stock_level, max_stock_level } = editForm;
+    const { name, category, current_stock, unit_price, product_id, cost_price, min_stock_level, max_stock_level, total_products_sold } = editForm;
     const { error } = await supabase.from('products').update({
       name,
       category,
@@ -237,6 +241,7 @@ const Inventory = () => {
       cost_price: cost_price ? Number(cost_price) : null,
       min_stock_level: min_stock_level ? Number(min_stock_level) : null,
       max_stock_level: max_stock_level ? Number(max_stock_level) : null,
+      total_products_sold: total_products_sold ? Number(total_products_sold) : 0,
       updated_at: new Date().toISOString(),
     }).eq('id', editForm.id);
     setEditLoading(false);
@@ -440,6 +445,7 @@ const Inventory = () => {
                     <th className="text-left py-3 px-4 font-medium text-gray-600">Stock</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-600">Unit Price</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-600">Cost Price</th>
+                    <th className="text-left py-3 px-4 font-medium text-gray-600">Total Sold</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-600">Min Stock</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-600">Max Stock</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-600">Created</th>
@@ -456,6 +462,7 @@ const Inventory = () => {
                       <td className="py-4 px-4">{item.current_stock}</td>
                       <td className="py-4 px-4">₹{item.unit_price}</td>
                       <td className="py-4 px-4">{item.cost_price !== null ? `₹${item.cost_price}` : '-'}</td>
+                      <td className="py-4 px-4">{item.total_products_sold}</td>
                       <td className="py-4 px-4">{item.min_stock_level ?? '-'}</td>
                       <td className="py-4 px-4">{item.max_stock_level ?? '-'}</td>
                       <td className="py-4 px-4 text-xs text-gray-500">{item.created_at ? new Date(item.created_at).toLocaleDateString() : '-'}</td>
@@ -503,6 +510,10 @@ const Inventory = () => {
                 <div>
                   <Label htmlFor="cost_price">Cost Price</Label>
                   <Input id="cost_price" name="cost_price" type="number" value={addForm.cost_price} onChange={handleAddChange} className="w-full" />
+                </div>
+                <div>
+                  <Label htmlFor="total_products_sold">Total Products Sold</Label>
+                  <Input id="total_products_sold" name="total_products_sold" type="number" value={addForm.total_products_sold} onChange={handleAddChange} className="w-full" />
                 </div>
                 <div>
                   <Label htmlFor="min_stock_level">Min Stock Level</Label>
@@ -556,6 +567,10 @@ const Inventory = () => {
                 <div>
                   <Label htmlFor="edit_cost_price">Cost Price</Label>
                   <Input id="edit_cost_price" name="cost_price" type="number" value={editForm.cost_price} onChange={handleEditChange} className="w-full" />
+                </div>
+                <div>
+                  <Label htmlFor="edit_total_products_sold">Total Products Sold</Label>
+                  <Input id="edit_total_products_sold" name="total_products_sold" type="number" value={editForm.total_products_sold} onChange={handleEditChange} className="w-full" />
                 </div>
                 <div>
                   <Label htmlFor="edit_min_stock_level">Min Stock Level</Label>
